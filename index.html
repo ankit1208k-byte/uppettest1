@@ -1,0 +1,2175 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UP PET 2026 Mock Test - SUPER KIDS STUDY CENTRE</title>
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #0b0f19 0%, #111827 50%, #1e1b4b 100%);
+      --card-bg: rgba(23, 31, 51, 0.85);
+      --card-border: rgba(99, 102, 241, 0.25);
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --accent: #38bdf8;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-family);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      background-attachment: fixed;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+
+    /* Header & Branding */
+    .brand-glow {
+      background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
+    }
+
+    /* Container */
+    .container {
+      max-width: 950px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Screen Views */
+    .screen {
+      display: none;
+      animation: fadeIn 0.35s ease-out forwards;
+    }
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Card Styling */
+    .glass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      color: #ffffff;
+      outline: none;
+      user-select: none;
+    }
+    .btn:active {
+      transform: scale(0.97);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+      transform: translateY(-2px);
+    }
+    .btn-success {
+      background: linear-gradient(135deg, #10b981, #059669);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+    }
+    .btn-success:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+    }
+    .btn-secondary {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: var(--text-muted);
+    }
+    .btn-secondary:hover {
+      background: #334155;
+      color: #fff;
+    }
+    .btn-danger {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 13px;
+      border-radius: 8px;
+    }
+
+    /* Start Screen */
+    .start-hero {
+      text-align: center;
+      padding: 30px 10px;
+    }
+    .start-hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+    .start-hero p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+    .exam-tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 16px;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #a5b4fc;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .form-group {
+      margin-top: 20px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #cbd5e1;
+    }
+    .form-input {
+      width: 100%;
+      padding: 14px 18px;
+      background: #0f172a;
+      border: 1.5px solid #334155;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 1rem;
+      transition: all 0.25s;
+    }
+    .form-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+      outline: none;
+    }
+    .instructions-box {
+      margin-top: 24px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px dashed #334155;
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 0.88rem;
+      color: #94a3b8;
+      text-align: left;
+    }
+    .instructions-box ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    /* Sticky Quiz Topbar */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1e293b;
+      padding: 12px 16px;
+    }
+    .header-content {
+      max-width: 950px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .user-badge {
+      display: flex;
+      flex-direction: column;
+    }
+    .user-badge .u-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #f1f5f9;
+    }
+    .user-badge .u-roll {
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+
+    .timer-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #090d16;
+      border: 1.5px solid #312e81;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-family: monospace;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #38bdf8;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+    }
+    .timer-wrap.danger-time {
+      color: #ef4444;
+      border-color: #ef4444;
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+
+    .header-controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* Progress bar */
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: #1e293b;
+      position: relative;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      width: 1%;
+      transition: width 0.3s ease;
+    }
+
+    /* Question Card */
+    .q-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      font-size: 0.85rem;
+    }
+    .q-badge {
+      background: rgba(99, 102, 241, 0.2);
+      color: #818cf8;
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .q-count {
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .q-text {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 22px;
+      color: #ffffff;
+    }
+
+    /* Options */
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .option-item {
+      display: flex;
+      align-items: center;
+      padding: 14px 18px;
+      background: #0f172a;
+      border: 1.5px solid #1e293b;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .option-item:hover {
+      background: #1e293b;
+      border-color: #4f46e5;
+      transform: translateX(4px);
+    }
+    .option-item.selected {
+      background: rgba(99, 102, 241, 0.2);
+      border-color: #6366f1;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.25);
+    }
+    .opt-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-right: 14px;
+      flex-shrink: 0;
+      color: #94a3b8;
+    }
+    .option-item.selected .opt-circle {
+      background: #6366f1;
+      border-color: #6366f1;
+      color: #fff;
+    }
+    .opt-text {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+    }
+
+    /* Quiz Navigation buttons */
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .nav-left, .nav-right {
+      display: flex;
+      gap: 10px;
+    }
+
+    /* Drawer / Palette Modal */
+    .palette-toggle-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 24px;
+      z-index: 99;
+      border-radius: 50px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    }
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      display: none;
+    }
+    .drawer-overlay.open {
+      display: block;
+    }
+    .palette-drawer {
+      position: fixed;
+      top: 0;
+      right: -360px;
+      width: 340px;
+      max-width: 90vw;
+      height: 100%;
+      background: #0f172a;
+      border-left: 1px solid #1e293b;
+      z-index: 201;
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6);
+    }
+    .palette-drawer.open {
+      right: 0;
+    }
+    .palette-header {
+      padding: 16px;
+      border-bottom: 1px solid #1e293b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .palette-grid {
+      padding: 16px;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+    .pal-btn {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      background: #1e293b;
+      color: #94a3b8;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+    }
+    .pal-btn:hover {
+      border-color: #6366f1;
+      color: #fff;
+    }
+    .pal-btn.answered {
+      background: #059669;
+      color: #fff;
+      border-color: #10b981;
+    }
+    .pal-btn.current {
+      box-shadow: 0 0 0 2px #38bdf8;
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+
+    /* Modal dialog */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 300;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-card {
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 18px;
+      max-width: 440px;
+      width: 100%;
+      padding: 26px;
+      text-align: center;
+      animation: modalScale 0.25s ease-out;
+    }
+    @keyframes modalScale {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .modal-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+    .modal-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+    .modal-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    /* Result Dashboard */
+    .result-hero {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .score-circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin: 16px auto;
+      background: radial-gradient(circle, #1e1b4b, #090d16);
+      border: 3px solid #6366f1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
+    }
+    .score-circle .score-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #38bdf8;
+      line-height: 1;
+    }
+    .score-circle .score-lbl {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .stat-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .stat-card .val {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .stat-card .lbl {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Review Screen */
+    .review-filter {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      border-radius: 20px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .filter-btn.active {
+      background: #4f46e5;
+      border-color: #6366f1;
+      color: #fff;
+    }
+    .review-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .review-card {
+      background: #0f172a;
+      border: 1.5px solid #1e293b;
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .review-card.correct {
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+    .review-card.wrong {
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+    .review-card.unanswered {
+      border-color: rgba(148, 163, 184, 0.2);
+    }
+    .rev-opt {
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-top: 8px;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+    }
+    .rev-opt.opt-correct {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: #10b981;
+      color: #34d399;
+      font-weight: 600;
+    }
+    .rev-opt.opt-wrong {
+      background: rgba(239, 68, 68, 0.15);
+      border-color: #ef4444;
+      color: #f87171;
+      font-weight: 600;
+    }
+    .rev-explanation {
+      margin-top: 14px;
+      padding: 12px;
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+
+    /* Anti-cheat banner toast */
+    .toast-alert {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ef4444;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      box-shadow: 0 10px 25px rgba(239, 68, 68, 0.5);
+      z-index: 1000;
+      font-weight: 600;
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container { padding: 10px; }
+      .glass-card { padding: 18px; border-radius: 14px; }
+      .q-text { font-size: 1.1rem; }
+      .btn { padding: 10px 16px; font-size: 14px; }
+      .start-hero h1 { font-size: 1.6rem; }
+      .timer-wrap { font-size: 1rem; padding: 6px 12px; }
+      .user-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Anti Cheat Toast -->
+  <div id="toastAlert" class="toast-alert">
+    <span>⚠️ चेतावनी: परीक्षा के दौरान टैब या विंडो बदलना सख्त वर्जित है!</span>
+  </div>
+
+  <!-- SCREEN 1: START SCREEN -->
+  <div id="startScreen" class="screen active">
+    <div class="container" style="max-width: 620px; margin-top: 25px;">
+      <div class="glass-card">
+        <div class="start-hero">
+          <h1 class="brand-glow">SUPER KIDS STUDY CENTRE</h1>
+          <p>उत्तर प्रदेश अधीनस्थ सेवा चयन आयोग (UPSSSC)</p>
+          <div class="exam-tag">UP PET 2026 : संपूर्ण पाठ्यक्रम महा-मॉक टेस्ट (100 MCQ)</div>
+        </div>
+
+        <form id="startForm" onsubmit="handleStartTest(event)">
+          <div class="form-group">
+            <label for="studentName">परीक्षार्थी का नाम (Student Name): *</label>
+            <input type="text" id="studentName" class="form-input" placeholder="उदा. अजय कुमार" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="rollNumber">अनुक्रमांक (Roll Number): *</label>
+            <input type="text" id="rollNumber" class="form-input" placeholder="उदा. PET2026-9045" required>
+          </div>
+
+          <div class="instructions-box">
+            <strong style="color: #f1f5f9;">📋 परीक्षा निर्देश (Exam Guidelines):</strong>
+            <ul>
+              <li>कुल प्रश्न: <strong>100</strong> | कुल समय: <strong>120 मिनट (2 घंटे)</strong></li>
+              <li>प्रणाली: प्रत्येक सही उत्तर पर <strong>+1 अंक</strong>, प्रत्येक गलत उत्तर पर <strong>-0.25 (1/4) नकारात्मक अंक</strong>।</li>
+              <li>सभी प्रश्न वस्तुनिष्ठ (MCQ) हैं। एक बार में एक प्रश्न स्क्रीन पर दिखेगा।</li>
+              <li>समय समाप्ति पर टेस्ट स्वतः (Auto-Submit) जमा हो जाएगा।</li>
+              <li>स्क्रीन/टैब बदलने पर एंटी-चीट चेतावनी दर्ज की जाएगी।</li>
+            </ul>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 24px; font-size: 1.1rem; padding: 14px;">
+            🚀 परीक्षा प्रारम्भ करें (Start Quiz)
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: QUIZ SCREEN -->
+  <div id="quizScreen" class="screen">
+    <!-- Sticky Top Header -->
+    <header class="sticky-header">
+      <div class="header-content">
+        <div class="user-badge">
+          <span class="u-name" id="dispStudentName">अजय कुमार</span>
+          <span class="u-roll" id="dispRollNumber">PET-001</span>
+        </div>
+
+        <div class="timer-wrap" id="timerBox">
+          <span>⏱️</span>
+          <span id="timerDisplay">02:00:00</span>
+        </div>
+
+        <div class="header-controls">
+          <button class="btn btn-secondary btn-sm" onclick="togglePaletteDrawer()" title="प्रश्न सूची">📋 सूची</button>
+          <button class="btn btn-secondary btn-sm" onclick="toggleFullscreen()" title="फुलस्क्रीन">⛶</button>
+          <button class="btn btn-secondary btn-sm" onclick="toggleSound()" id="soundBtn" title="ध्वनि">🔊</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Top Progress Bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <!-- Main Question Box -->
+    <div class="container" style="margin-top: 20px; margin-bottom: 70px;">
+      <div class="glass-card" id="questionCard">
+        <div class="q-meta">
+          <span class="q-badge" id="qSubjectBadge">भारतीय इतिहास</span>
+          <span class="q-count" id="qCountDisplay">प्रश्न 1 / 100</span>
+        </div>
+
+        <div class="q-text" id="qText">लोड हो रहा है...</div>
+
+        <div class="options-grid" id="optionsContainer">
+          <!-- Options rendered via JS -->
+        </div>
+
+        <div class="quiz-nav">
+          <div class="nav-left">
+            <button class="btn btn-secondary" id="prevBtn" onclick="navigateQuestion(-1)">← पिछला (Previous)</button>
+            <button class="btn btn-secondary" onclick="clearCurrentResponse()">मार्क हटाएं</button>
+          </div>
+          <div class="nav-right">
+            <button class="btn btn-primary" id="nextBtn" onclick="navigateQuestion(1)">अगला (Next) →</button>
+            <button class="btn btn-success" onclick="openSubmitConfirmModal()">सबमिट करें (Submit)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Floating Palette Button -->
+    <button class="btn btn-primary palette-toggle-btn" onclick="togglePaletteDrawer()">
+      📋 प्रश्न सूची (1-100)
+    </button>
+  </div>
+
+  <!-- DRAWER: QUESTION PALETTE -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="togglePaletteDrawer()"></div>
+  <aside class="palette-drawer" id="paletteDrawer">
+    <div class="palette-header">
+      <h3 style="color:#fff; font-size:1.1rem;">प्रश्न पैलेट (100)</h3>
+      <button class="btn btn-secondary btn-sm" onclick="togglePaletteDrawer()">✕ बंद करें</button>
+    </div>
+    <div style="padding: 10px 16px; font-size: 0.78rem; color: #94a3b8; border-bottom: 1px solid #1e293b; display: flex; gap: 12px;">
+      <span>🟢 हल किया</span>
+      <span>⚪ शेष</span>
+      <span>🔵 वर्तमान</span>
+    </div>
+    <div class="palette-grid" id="paletteGrid">
+      <!-- 100 buttons generated dynamically -->
+    </div>
+  </aside>
+
+  <!-- SCREEN 3: RESULT SCREEN -->
+  <div id="resultScreen" class="screen">
+    <div class="container" style="max-width: 780px; margin-top: 25px; margin-bottom: 40px;">
+      <div class="glass-card">
+        <div class="result-hero">
+          <h2 class="brand-glow" style="font-size: 1.8rem;">SUPER KIDS STUDY CENTRE</h2>
+          <p style="color: #94a3b8; margin-top: 4px;">UPSSSC PET 2026 - परीक्षा परिणाम (Scorecard)</p>
+
+          <div class="score-circle">
+            <span class="score-num" id="resFinalScore">0.00</span>
+            <span class="score-lbl">प्राप्तांक / 100</span>
+          </div>
+
+          <h3 id="resStudentGreeting" style="color: #f8fafc; font-size: 1.3rem;">शाबाश!</h3>
+          <p id="resSubMsg" style="color: var(--accent); font-size: 0.95rem;">आपका परिणाम नीचे विवरण में उपलब्ध है</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="val" id="resTotalQ">100</div>
+            <div class="lbl">कुल प्रश्न</div>
+          </div>
+          <div class="stat-card">
+            <div class="val" id="resAttempted">0</div>
+            <div class="lbl">हल किए गए</div>
+          </div>
+          <div class="stat-card">
+            <div class="val" style="color:#10b981;" id="resCorrect">0</div>
+            <div class="lbl">सही उत्तर (+1)</div>
+          </div>
+          <div class="stat-card">
+            <div class="val" style="color:#ef4444;" id="resWrong">0</div>
+            <div class="lbl">गलत उत्तर (-0.25)</div>
+          </div>
+          <div class="stat-card">
+            <div class="val" id="resAccuracy">0%</div>
+            <div class="lbl">सटीकता (Accuracy)</div>
+          </div>
+          <div class="stat-card">
+            <div class="val" id="resTimeTaken">00:00</div>
+            <div class="lbl">लिया गया समय</div>
+          </div>
+        </div>
+
+        <div style="background: #0f172a; border-radius: 12px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.9rem;">
+          <div style="display:flex; justify-content:space-between; margin-bottom: 6px;">
+            <span style="color:#94a3b8;">परीक्षार्थी:</span>
+            <strong id="resCardName">-</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom: 6px;">
+            <span style="color:#94a3b8;">अनुक्रमांक (Roll No):</span>
+            <strong id="resCardRoll">-</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span style="color:#94a3b8;">अंतिम प्रतिशत (Percentage):</span>
+            <strong id="resCardPercentage" style="color:#38bdf8;">0%</strong>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <button class="btn btn-primary" onclick="showReviewScreen()">
+            📖 विस्तृत उत्तर एवं समाधान देखें (Review Answers)
+          </button>
+          <button class="btn btn-secondary" onclick="restartQuiz()">
+            🔄 पुनः टेस्ट दें (Restart Quiz)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 4: ANSWER REVIEW SCREEN -->
+  <div id="reviewScreen" class="screen">
+    <div class="container" style="max-width: 900px; margin-top: 20px; margin-bottom: 50px;">
+      <div class="glass-card" style="margin-bottom: 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div>
+          <h2 style="color:#fff; font-size:1.4rem;">प्रश्नोत्तरी समीक्षा एवं व्याख्या (Answer Key & Explanations)</h2>
+          <span style="font-size:0.85rem; color:var(--text-muted);" id="revTotalTiming">लिया गया समय: 00:00</span>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="backToResult()">← परिणाम पर लौटें</button>
+      </div>
+
+      <div class="review-filter">
+        <button class="filter-btn active" onclick="filterReview('all', this)">सभी प्रश्न (100)</button>
+        <button class="filter-btn" onclick="filterReview('correct', this)">सही उत्तर</button>
+        <button class="filter-btn" onclick="filterReview('wrong', this)">गलत उत्तर</button>
+        <button class="filter-btn" onclick="filterReview('unanswered', this)">छोड़े गए प्रश्न</button>
+      </div>
+
+      <div class="review-list" id="reviewListContainer">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CONFIRM SUBMISSION -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal-card">
+      <div style="font-size: 2.8rem; margin-bottom: 8px;">📑</div>
+      <h3>क्या आप टेस्ट सबमिट करना चाहते हैं?</h3>
+      <p id="confirmModalStats">हल किए गए: 0 | शेष प्रश्न: 100</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeSubmitConfirmModal()">नहीं, जारी रखें</button>
+        <button class="btn btn-success" onclick="finalSubmitQuiz()">हाँ, सबमिट करें</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC & 100 COMPLETE UP PET QUESTIONS -->
+  <script>
+    /* ========================================================
+       100 UP PET 2026 QUESTIONS (COMPREHENSIVE SYLLABUS)
+       Syllabus: History, Movement, Geography, Economy,
+       Polity, Science, Math, Hindi, English, Logic, GK, Current
+       ======================================================== */
+    const UP_PET_QUESTIONS = [
+      // 1-10: भारतीय इतिहास (Ancient & Medieval History)
+      {
+        id: 1,
+        subject: "भारतीय इतिहास",
+        q: "सिन्धु घाटी सभ्यता का निम्नलिखित में से कौन सा प्रमुख स्थल वर्तमान भारत में स्थित है?",
+        options: ["हड़प्पा", "मोहनजोदड़ो", "लोथल", "चन्हूदड़ो"],
+        ans: 2,
+        exp: "लोथल गुजरात के भाल क्षेत्र में भोगवा नदी के तट पर स्थित एक प्रमुख हड़प्पाकालीन बंदरगाह था। हड़प्पा, मोहनजोदड़ो और चन्हूदड़ो वर्तमान पाकिस्तान में हैं।"
+      },
+      {
+        id: 2,
+        subject: "भारतीय इतिहास",
+        q: "चारों वेदों में सबसे प्राचीन वेद निम्नलिखित में से कौन सा है?",
+        options: ["सामवेद", "ऋग्वेद", "यजुर्वेद", "अथर्ववेद"],
+        ans: 1,
+        exp: "ऋग्वेद मानव जाति का सबसे प्राचीन ज्ञात ग्रंथ और सबसे पुराना वेद है। इसमें 10 मंडल और 1028 सूक्त हैं।"
+      },
+      {
+        id: 3,
+        subject: "भारतीय इतिहास",
+        q: "भगवान बुद्ध ने अपना पहला धर्मोपदेश (धर्मचक्रप्रवर्तन) कहाँ दिया था?",
+        options: ["बोधगया", "सारनाथ", "कुशीनगर", "लुम्बिनी"],
+        ans: 1,
+        exp: "ज्ञान प्राप्ति के पश्चात् भगवान बुद्ध ने अपना प्रथम उपदेश सारनाथ (ऋषिपत्तन/वाराणसी) में अपने पाँच शिष्यों को दिया था।"
+      },
+      {
+        id: 4,
+        subject: "भारतीय इतिहास",
+        q: "मौर्य साम्राज्य के संस्थापक निम्नलिखित में से कौन थे?",
+        options: ["बिन्दुसार", "अशोक", "चन्द्रगुप्त मौर्य", "दशरथ"],
+        ans: 2,
+        exp: "चन्द्रगुप्त मौर्य ने चाणक्य की सहायता से नंद वंश के अंतिम शासक घनानंद को पराजित कर 322 ई.पू. में मौर्य साम्राज्य की स्थापना की थी।"
+      },
+      {
+        id: 5,
+        subject: "भारतीय इतिहास",
+        q: "प्रसिद्ध ऐतिहासिक पुस्तक 'इण्डिका' (Indica) के रचयिता कौन थे?",
+        options: ["मेगस्थनीज", "ह्वेनसांग", "फाह्यान", "अलबरूनी"],
+        ans: 0,
+        exp: "मेगस्थनीज सेल्यूकस निकेटर का राजदूत था, जो चन्द्रगुप्त मौर्य के दरबार में आया था और उसने पाटलिपुत्र एवं मौर्य प्रशासन का वर्णन 'इण्डिका' में किया।"
+      },
+      {
+        id: 6,
+        subject: "भारतीय इतिहास",
+        q: "इतिहासकार वी. ए. स्मिथ ने किस गुप्त शासक को 'भारत का नेपोलियन' कहा है?",
+        options: ["चन्द्रगुप्त प्रथम", "समुद्रगुप्त", "स्कन्दगुप्त", "कुमारगुप्त"],
+        ans: 1,
+        exp: "समुद्रगुप्त के अद्वितीय सैन्य अभियानों और विजयों के कारण इतिहासकार विंसेंट स्मिथ ने उन्हें 'भारत का नेपोलियन' कहा था। प्रयाग प्रशस्ति में इसका वर्णन है।"
+      },
+      {
+        id: 7,
+        subject: "भारतीय इतिहास",
+        q: "हर्षवर्धन के दरबारी कवि बाणभट्ट द्वारा रचित प्रसिद्ध कृति कौन सी है?",
+        options: ["रत्नावली", "हर्षचरित", "गीत गोविंद", "मुद्राराक्षस"],
+        ans: 1,
+        exp: "बाणभट्ट ने 'हर्षचरित' और 'कादम्बरी' की रचना की थी। जबकि 'रत्नावली' स्वयं राजा हर्षवर्धन की रचना मानी जाती है।"
+      },
+      {
+        id: 8,
+        subject: "भारतीय इतिहास",
+        q: "तराइन का प्रथम युद्ध (1191 ई.) किनके मध्य लड़ा गया था?",
+        options: ["पृथ्वीराज चौहान और मोहम्मद गोरी", "बाबर और इब्राहिम लोदी", "अकबर और हेमू", "राणा सांगा और बाबर"],
+        ans: 0,
+        exp: "तराइन का प्रथम युद्ध 1191 ईस्वी में पृथ्वीराज चौहान और मोहम्मद गोरी के बीच हुआ जिसमें पृथ्वीराज चौहान की ऐतिहासिक विजय हुई।"
+      },
+      {
+        id: 9,
+        subject: "भारतीय इतिहास",
+        q: "दिल्ली सल्तनत में 'दीवान-ए-आरिज' किस विभाग से संबंधित था?",
+        options: ["कृषि विभाग", "विदेश विभाग", "सैन्य विभाग", "वित्त विभाग"],
+        ans: 2,
+        exp: "दीवान-ए-आरिज सैन्य विभाग था, जिसकी स्थापना बलबन द्वारा सेना के सुदृढ़ीकरण हेतु की गई थी।"
+      },
+      {
+        id: 10,
+        subject: "भारतीय इतिहास",
+        q: "मुगल काल में 'मनसबदारी प्रणाली' की शुरुआत किस शासक ने की थी?",
+        options: ["बाबर", "हुमायूँ", "अकबर", "औरंगजेब"],
+        ans: 2,
+        exp: "अकबर ने 1577 ईस्वी के आसपास नागरिक और सैन्य अधिकारियों के पद, वेतन और सैन्य उत्तरदायित्व निर्धारित करने हेतु मनसबदारी प्रणाली लागू की।"
+      },
+
+      // 11-20: भारतीय राष्ट्रीय आन्दोलन (Indian National Movement)
+      {
+        id: 11,
+        subject: "राष्ट्रीय आन्दोलन",
+        q: "1857 के प्रथम स्वतंत्रता संग्राम का औपचारिक बिगुल कहाँ से फूंका गया था?",
+        options: ["झांसी", "मेरठ", "कानपुर", "लखनऊ"],
+        ans: 1,
+        exp: "1857 के विद्रोह की औपचारिक शुरुआत 10 मई 1857 को मेरठ छावनी के सैनिकों द्वारा कंपनी शासन के विरुद्ध विद्रोह के साथ हुई थी।"
+      },
+      {
+        id: 12,
+        subject: "राष्ट्रीय आन्दोलन",
+        q: "भारतीय राष्ट्रीय कांग्रेस (INC) की स्थापना किस वर्ष हुई थी?",
+        options: ["1885", "1890", "1905", "1919"],
+        ans: 0,
+        exp: "भारतीय राष्ट्रीय कांग्रेस की स्थापना 28 दिसम्बर 1885 को बॉम्बे के गोकुलदास तेजपाल संस्कृत कॉलेज में ए.ओ. ह्यूम की पहल पर हुई थी।"
+      },
+      {
+        id: 13,
+        subject: "राष्ट्रीय आन्दोलन",
+        q: "'स्वराज मेरा जन्मसिद्ध अधिकार है और मैं इसे लेकर रहूँगा' यह उद्घोष किसने दिया था?",
+        options: ["लाला लाजपत राय", "बाल गंगाधर तिलक", "विपिन चंद्र पाल", "गोपाल कृष्ण गोखले"],
+        ans: 1,
+        exp: "लोकमान्य बाल गंगाधर तिलक ने होमरूल लीग आन्दोलन के दौरान यह ओजस्वी नारा देकर जनता में राष्ट्रीय चेतना का संचार किया था।"
+      },
+      {
+        id: 14,
+        subject: "राष्ट्रीय आन्दोलन",
+        q: "वर्ष 1905 में बंगाल विभाजन किस ब्रिटिश वायसराय के कार्यकाल में हुआ था?",
+        options: ["लॉर्ड रिपन", "लॉर्ड डलहौजी", "लॉर्ड कर्जन", "लॉर्ड माउंटबेटन"],
+        ans: 2,
+        exp: "लॉर्ड कर्जन ने फूट डालो और राज करो की नीति के तहत प्रशासनिक सुविधा का बहाना बनाकर 1905 में बंगाल का विभाजन किया था।"
+      },
+      {
+        id: 15,
+        subject: "राष्ट्रीय आन्दोलन",
+        q: "1913 में सैन फ्रांसिस्को (अमेरिका) में 'गदर पार्टी' की स्थापना किसने की थी?",
+        options: ["लाला हरदयाल", "भगत सिंह", "रास बिहारी बोस", "विनायक दामोदर सावरकर"],
+        ans: 0,
+        exp: "लाला हरदयाल और सोहन सिंह भकना ने भारत को ब्रिटिश राज से मुक्त कराने हेतु 1913 में अमेरिका में गदर आन्दोलन/पार्टी की नींव रखी।"
+      },
+      {
+        id: 16,
+        subject: "राष्ट्रीय आन्दोलन",
+        q: "अमृतसर का भीषण 'जलियाँवाला बाग हत्याकांड' किस तिथि को घटित हुआ था?",
+        options: ["13 अप्रैल 1919", "15 अगस्त 1920", "26 जनवरी 1919", "10 मई 1918"],
+        ans: 0,
+        exp: "13 अप्रैल 1919 को बैसाखी के दिन डॉ. सत्यपाल और सैफुद्दीन किचलू की गिरफ्तारी के विरोध में शांतिपूर्ण सभा पर जनरल डायर ने अंधाधुंध गोलियां चलवाई थीं।"
+      },
+      {
+        id: 17,
+        subject: "राष्ट्रीय आन्दोलन",
+        q: "गोरखपुर के निकट 'चौरी-चौरा' की हिंसक घटना के बाद महात्मा गांधी ने कौन सा आन्दोलन वापस ले लिया था?",
+        options: ["सविनय अवज्ञा आन्दोलन", "असहयोग आन्दोलन", "भारत छोड़ो आन्दोलन", "खेड़ा सत्याग्रह"],
+        ans: 1,
+        exp: "फरवरी 1922 में चौरी-चौरा थाने में भीड़ द्वारा आग लगाने की हिंसक घटना से आहत होकर गांधीजी ने असहयोग आन्दोलन स्थगित कर दिया।"
+      },
+      {
+        id: 18,
+        subject: "राष्ट्रीय आन्दोलन",
+        q: "गांधीजी ने ऐतिहासिक 'दांडी मार्च' (नमक सत्याग्रह) किस वर्ष शुरू किया था?",
+        options: ["1928", "1930", "1932", "1942"],
+        ans: 1,
+        exp: "12 मार्च 1930 को साबरमती आश्रम से 78 अनुयायियों के साथ दांडी यात्रा प्रारम्भ हुई और 6 अप्रैल 1930 को नमक कानून तोड़ा गया।"
+      },
+      {
+        id: 19,
+        subject: "राष्ट्रीय आन्दोलन",
+        q: "'करो या मरो' (Do or Die) का अमर नारा महात्मा गांधी ने किस आन्दोलन में दिया था?",
+        options: ["चम्पारण सत्याग्रह", "खिलाफत आन्दोलन", "भारत छोड़ो आन्दोलन", "रोलेट सत्याग्रह"],
+        ans: 2,
+        exp: "8 अगस्त 1942 को बम्बई के गवालिया टैंक मैदान से 'भारत छोड़ो आन्दोलन' की घोषणा करते हुए गांधीजी ने 'करो या मरो' का आह्वान किया।"
+      },
+      {
+        id: 20,
+        subject: "राष्ट्रीय आन्दोलन",
+        q: "आजाद हिन्द फौज (INA) के पुनर्गठन और 'दिल्ली चलो' का नारा देने वाले महानायक कौन थे?",
+        options: ["सुभाष चन्द्र बोस", "चंद्रशेखर आजाद", "भगत सिंह", "सरदार पटेल"],
+        ans: 0,
+        exp: "नेताजी सुभाष चन्द्र बोस ने 1943 में सिंगापुर में आजाद हिन्द सरकार और फौज का नेतृत्व संभाला तथा 'दिल्ली चलो' और 'तुम मुझे खून दो, मैं तुम्हें आजादी दूंगा' का नारा दिया।"
+      },
+
+      // 21-30: भूगोल (Geography)
+      {
+        id: 21,
+        subject: "भूगोल",
+        q: "भारत की मुख्य भूमि का सबसे दक्षिणी छोर (Southernmost point) कौन सा है?",
+        options: ["इन्दिरा पॉइंट", "कन्याकुमारी (केप कोमोरिन)", "रामेश्वरम", "तिरुवनंतपुरम"],
+        ans: 1,
+        exp: "भारत की मुख्य भूमि का दक्षिणतम बिंदु कन्याकुमारी (तमिलनाडु) है, जबकि समग्र भारत का दक्षिणतम बिंदु अंडमान निकोबार स्थित 'इन्दिरा पॉइंट' है।"
+      },
+      {
+        id: 22,
+        subject: "भूगोल",
+        q: "कर्क रेखा (23.5° N) भारत के कुल कितने राज्यों से होकर गुजरती है?",
+        options: ["6", "7", "8", "9"],
+        ans: 2,
+        exp: "कर्क रेखा भारत के 8 राज्यों से गुजरती है: गुजरात, राजस्थान, मध्य प्रदेश, छत्तीसगढ़, झारखंड, पश्चिम बंगाल, त्रिपुरा तथा मिजोरम।"
+      },
+      {
+        id: 23,
+        subject: "भूगोल",
+        q: "भारत की सबसे लम्बी नदी कौन सी है जिसकी लम्बाई लगभग 2525 किमी है?",
+        options: ["गोदावरी", "ब्रह्मपुत्र", "गंगा", "सिंधु"],
+        ans: 2,
+        exp: "गंगा भारत की राष्ट्रीय और सबसे लम्बी नदी है, जिसकी कुल लम्बाई 2,525 किमी है। इसका उद्गम गंगोत्री हिमनद (भागीरथी) से होता है।"
+      },
+      {
+        id: 24,
+        subject: "भूगोल",
+        q: "'साइलेंट वैली' (शांत घाटी) राष्ट्रीय उद्यान भारत के किस राज्य में स्थित है?",
+        options: ["तमिलनाडु", "कर्नाटक", "केरल", "उत्तराखंड"],
+        ans: 2,
+        exp: "शांत घाटी (Silent Valley) केरल के पलक्कड़ जिले में नीलगिरि पहाड़ियों में स्थित जैव विविधता से अत्यंत समृद्ध वर्षा वन है।"
+      },
+      {
+        id: 25,
+        subject: "भूगोल",
+        q: "विश्व प्रसिद्ध 'सुंदरवन डेल्टा' मुख्य रूप से किस प्रकार की वनस्पति के लिए जाना जाता है?",
+        options: ["शंकुधारी वन", "मैंग्रोव वन", "कंटीली झाड़ियाँ", "पर्णपाती वन"],
+        ans: 1,
+        exp: "गंगा-ब्रह्मपुत्र का सुंदरवन डेल्टा विश्व का सबसे बड़ा मैंग्रोव (ज्वारीय) वन क्षेत्र है, जहाँ सुंदरी नामक वृक्ष प्रचुर मात्रा में पाए जाते हैं।"
+      },
+      {
+        id: 26,
+        subject: "भूगोल",
+        q: "'भाखड़ा नांगल बाँध' किस नदी पर निर्मित एक बहुउद्देशीय परियोजना है?",
+        options: ["रावी", "व्यास", "सतलुज", "झेलम"],
+        ans: 2,
+        exp: "भाखड़ा नांगल बाँध सतलुज नदी पर हिमाचल प्रदेश और पंजाब की सीमा पर स्थित भारत का प्रमुख गुरुत्वीय बाँध है।"
+      },
+      {
+        id: 27,
+        subject: "भूगोल",
+        q: "भारत का एकमात्र सक्रिय ज्वालामुखी कहाँ स्थित है?",
+        options: ["बैरन द्वीप", "नारकोंडम द्वीप", "लक्षद्वीप", "मिनिकॉय"],
+        ans: 0,
+        exp: "बैरन द्वीप (Barren Island) अंडमान सागर में स्थित भारत तथा दक्षिण एशिया का एकमात्र पुष्ट सक्रिय ज्वालामुखी है।"
+      },
+      {
+        id: 28,
+        subject: "भूगोल",
+        q: "क्षेत्रफल और जनसंख्या दोनों दृष्टि से विश्व का सबसे बड़ा महाद्वीप कौन सा है?",
+        options: ["अफ्रीका", "उत्तर अमेरिका", "यूरोप", "एशिया"],
+        ans: 3,
+        exp: "एशिया पृथ्वी का सबसे बड़ा महाद्वीप है, जो पृथ्वी के कुल भू-भाग का लगभग 30% और आबादी का लगभग 60% हिस्सा समेटे हुए है।"
+      },
+      {
+        id: 29,
+        subject: "भूगोल",
+        q: "वायुमण्डल की किस परत में सूर्य की पराबैंगनी किरणों को सोखने वाली 'ओजोन परत' पाई जाती है?",
+        options: ["क्षोभमण्डल (Troposphere)", "समतापमण्डल (Stratosphere)", "मध्यमण्डल (Mesosphere)", "आयनमण्डल (Ionosphere)"],
+        ans: 1,
+        exp: "समतापमण्डल में ओजोन गैस की परत पाई जाती है जो पराबैंगनी (UV) विकिरणों से पृथ्वी की रक्षा करती है। जेट विमान भी इसी परत में उड़ते हैं।"
+      },
+      {
+        id: 30,
+        subject: "भूगोल",
+        q: "'काजीरंगा राष्ट्रीय उद्यान' (असम) विशेष रूप से किस दुर्लभ प्राणी के लिए प्रसिद्ध है?",
+        options: ["एशियाई शेर", "एक सींग वाला गैंडा", "रॉयल बंगाल टाइगर", "कश्मीरी हिरण"],
+        ans: 1,
+        exp: "काजीरंगा राष्ट्रीय उद्यान विश्व के दो-तिहाई 'एक सींग वाले गैंडों' (One-horned Rhinoceros) का प्राकृतिक निवास स्थान है।"
+      },
+
+      // 31-40: भारतीय अर्थव्यवस्था (Indian Economy)
+      {
+        id: 31,
+        subject: "भारतीय अर्थव्यवस्था",
+        q: "भारत में योजना आयोग की स्थापना किस वर्ष हुई थी?",
+        options: ["1947", "1950", "1952", "1965"],
+        ans: 1,
+        exp: "योजना आयोग का गठन 15 मार्च 1950 को एक गैर-संवैधानिक परामर्शदात्री निकाय के रूप में हुआ था, जिसके प्रथम अध्यक्ष पं. जवाहरलाल नेहरू थे।"
+      },
+      {
+        id: 32,
+        subject: "भारतीय अर्थव्यवस्था",
+        q: "योजना आयोग के स्थान पर 'नीति आयोग' (NITI Aayog) का गठन कब किया गया?",
+        options: ["1 जनवरी 2014", "1 जनवरी 2015", "15 अगस्त 2015", "1 अप्रैल 2016"],
+        ans: 1,
+        exp: "भारत सरकार ने 1 जनवरी 2015 को नेशनल इंस्टीट्यूशन फॉर ट्रांसफॉर्मिंग इंडिया (NITI) आयोग का गठन किया। प्रधानमंत्री इसके पदेन अध्यक्ष होते हैं।"
+      },
+      {
+        id: 33,
+        subject: "भारतीय अर्थव्यवस्था",
+        q: "भारत में 'हरित क्रांति' (Green Revolution) का जनक किसे कहा जाता है?",
+        options: ["डॉ. वर्गीज कुरियन", "डॉ. एम. एस. स्वामीनाथन", "सैम पित्रोदा", "प्रो. अमर्त्य सेन"],
+        ans: 1,
+        exp: "डॉ. एम. एस. स्वामीनाथन को भारत में अधिक उपज देने वाली गेहूं व चावल की किस्मों को विकसित कर हरित क्रांति का सूत्रपात करने का श्रेय प्राप्त है।"
+      },
+      {
+        id: 34,
+        subject: "भारतीय अर्थव्यवस्था",
+        q: "'श्वेत क्रांति' (ऑपरेशन फ्लड) का सीधा संबंध किस वस्तु के उत्पादन में वृद्धि से है?",
+        options: ["अंडा उत्पादन", "दूध उत्पादन", "चावल उत्पादन", "कपास उत्पादन"],
+        ans: 1,
+        exp: "श्वेत क्रांति दुग्ध उत्पादन से संबंधित है जिसके सूत्रधार डॉ. वर्गीज कुरियन (Milkman of India) थे जिन्होंने अमूल मॉडल को राष्ट्रीय स्तर पर स्थापित किया।"
+      },
+      {
+        id: 35,
+        subject: "भारतीय अर्थव्यवस्था",
+        q: "भारत का केन्द्रीय बैंक कौन सा है जो देश की मौद्रिक नीति का संचालन करता है?",
+        options: ["भारतीय स्टेट बैंक", "पंजाब नेशनल बैंक", "भारतीय रिजर्व बैंक (RBI)", "नाबार्ड"],
+        ans: 2,
+        exp: "भारतीय रिजर्व बैंक (RBI) भारत का केन्द्रीय बैंक है, जिसकी स्थापना 1 अप्रैल 1935 को RBI अधिनियम 1934 के अंतर्गत हुई थी।"
+      },
+      {
+        id: 36,
+        subject: "भारतीय अर्थव्यवस्था",
+        q: "इन्दिरा गांधी के कार्यकाल में 14 प्रमुख निजी वाणिज्यिक बैंकों का राष्ट्रीयकरण किस वर्ष किया गया?",
+        options: ["1969", "1975", "1980", "1991"],
+        ans: 0,
+        exp: "19 जुलाई 1969 को 50 करोड़ रुपये से अधिक जमा पूँजी वाले 14 बड़े वाणिज्यिक बैंकों का ऐतिहासिक राष्ट्रीयकरण किया गया था।"
+      },
+      {
+        id: 37,
+        subject: "भारतीय अर्थव्यवस्था",
+        q: "भारत में वस्तु एवं सेवा कर (GST) किस तिथि से राष्ट्रव्यापी स्तर पर लागू हुआ?",
+        options: ["1 जनवरी 2017", "1 अप्रैल 2017", "1 जुलाई 2017", "8 नवम्बर 2016"],
+        ans: 2,
+        exp: "101वें संविधान संशोधन अधिनियम द्वारा 1 जुलाई 2017 से 'एक देश, एक कर' की अवधारणा के साथ GST लागू किया गया था।"
+      },
+      {
+        id: 38,
+        subject: "भारतीय अर्थव्यवस्था",
+        q: "अर्थव्यवस्था के 'प्राथमिक क्षेत्र' (Primary Sector) के अंतर्गत कौन सा घटक आता है?",
+        options: ["विनिर्माण", "बैंकिंग", "कृषि एवं वानिकी", "परिवहन"],
+        ans: 2,
+        exp: "प्राकृतिक संसाधनों से प्रत्यक्ष रूप से जुड़ी गतिविधियाँ जैसे कृषि, वानिकी, मत्स्य पालन और खनन प्राथमिक क्षेत्र में शामिल हैं।"
+      },
+      {
+        id: 39,
+        subject: "भारतीय अर्थव्यवस्था",
+        q: "'मिश्रित अर्थव्यवस्था' (Mixed Economy) की प्रमुख विशेषता क्या है?",
+        options: ["केवल भारी उद्योगों का होना", "सार्वजनिक और निजी क्षेत्र का सह-अस्तित्व", "विदेशी निवेश पर पूर्ण रोक", "केवल कृषि पर निर्भरता"],
+        ans: 1,
+        exp: "मिश्रित अर्थव्यवस्था में पूँजीवादी (निजी) और समाजवादी (सरकारी/सार्वजनिक) दोनों क्षेत्र मिलकर आर्थिक विकास हेतु कार्य करते हैं।"
+      },
+      {
+        id: 40,
+        subject: "भारतीय अर्थव्यवस्था",
+        q: "भारतीय प्रतिभूति और विनिमय बोर्ड (SEBI) का प्रमुख दायित्व क्या है?",
+        options: ["मुद्रा छापना", "शेयर बाजार एवं निवेशकों के हितों का नियमन", "विदेशी ऋण देना", "बजट निर्माण"],
+        ans: 1,
+        exp: "SEBI भारत में पूँजी बाजार (Capital & Securities Market) का नियामक निकाय है, जो निवेशकों की सुरक्षा और पारदर्शिता सुनिश्चित करता है।"
+      },
+
+      // 41-50: भारतीय संविधान एवं लोक प्रशासन (Polity & Governance)
+      {
+        id: 41,
+        subject: "भारतीय संविधान",
+        q: "भारतीय संविधान सभा के स्थायी अध्यक्ष के रूप में किन्हें चुना गया था?",
+        options: ["डॉ. सच्चिदानंद सिन्हा", "डॉ. राजेन्द्र प्रसाद", "पंडित नेहरू", "डॉ. बी.आर. अम्बेडकर"],
+        ans: 1,
+        exp: "11 दिसम्बर 1946 को डॉ. राजेन्द्र प्रसाद को संविधान सभा का स्थायी अध्यक्ष चुना गया था। 9 दिसम्बर को डॉ. सच्चिदानंद सिन्हा अस्थायी अध्यक्ष बने थे।"
+      },
+      {
+        id: 42,
+        subject: "भारतीय संविधान",
+        q: "संविधान निर्माण की 'प्रारूप समिति' (Drafting Committee) के अध्यक्ष कौन थे?",
+        options: ["डॉ. बी. आर. अम्बेडकर", "सर बी.एन. राव", "के.एम. मुंशी", "जवाहरलाल नेहरू"],
+        ans: 0,
+        exp: "29 अगस्त 1947 को गठित 7 सदस्यीय प्रारूप समिति के अध्यक्ष डॉ. भीमराव अम्बेडकर थे, जिन्हें भारतीय संविधान का जनक कहा जाता है।"
+      },
+      {
+        id: 43,
+        subject: "भारतीय संविधान",
+        q: "मौलिक अधिकार भारतीय संविधान के किस भाग में प्रतिष्ठापित हैं?",
+        options: ["भाग I", "भाग II", "भाग III", "भाग IV"],
+        ans: 2,
+        exp: "संविधान के भाग III में अनुच्छेद 12 से 35 तक मौलिक अधिकारों का प्रावधान है। इसे भारत का 'मैग्नाकार्टा' भी कहा जाता है।"
+      },
+      {
+        id: 44,
+        subject: "भारतीय संविधान",
+        q: "संविधान का कौन सा अनुच्छेद 'अस्पृश्यता का अंत' (Abolition of Untouchability) सुनिश्चित करता है?",
+        options: ["अनुच्छेद 14", "अनुच्छेद 17", "अनुच्छेद 19", "अनुच्छेद 21"],
+        ans: 1,
+        exp: "अनुच्छेद 17 के तहत अस्पृश्यता को दंडनीय अपराध घोषित किया गया है और इसके किसी भी रूप में आचरण को निषिद्ध किया गया है।"
+      },
+      {
+        id: 45,
+        subject: "भारतीय संविधान",
+        q: "'राज्य के नीति निदेशक तत्व' (DPSP) किस देश के संविधान से प्रेरित हैं?",
+        options: ["ब्रिटेन", "संयुक्त राज्य अमेरिका", "आयरलैंड", "कनाडा"],
+        ans: 2,
+        exp: "भारतीय संविधान के भाग IV (अनुच्छेद 36-51) में दिए गए नीति निदेशक तत्व आयरलैंड के संविधान से ग्रहण किए गए हैं।"
+      },
+      {
+        id: 46,
+        subject: "भारतीय संविधान",
+        q: "भारत के राष्ट्रपति पद के चुनाव हेतु उम्मीदवार की न्यूनतम आयु कितनी होनी चाहिए?",
+        options: ["25 वर्ष", "30 वर्ष", "35 वर्ष", "21 वर्ष"],
+        ans: 2,
+        exp: "अनुच्छेद 58 के अनुसार राष्ट्रपति पद के प्रत्याशी की न्यूनतम आयु 35 वर्ष पूर्ण होनी चाहिए तथा वह लोकसभा का सदस्य बनने की योग्यता रखता हो।"
+      },
+      {
+        id: 47,
+        subject: "भारतीय संविधान",
+        q: "भारत में त्रिस्तरीय पंचायती राज व्यवस्था लागू करने की सिफारिश किस समिति ने की थी?",
+        options: ["अशोक मेहता समिति", "बलवंत राय मेहता समिति", "सरकारिया आयोग", "शिवरामन समिति"],
+        ans: 1,
+        exp: "1957 में बलवंत राय मेहता समिति ने ग्राम, ब्लॉक तथा जिला स्तर पर त्रिस्तरीय पंचायती राज व्यवस्था का सुझाव दिया था।"
+      },
+      {
+        id: 48,
+        subject: "भारतीय संविधान",
+        q: "लोकसभा के सदस्यों का सामान्य कार्यकाल कितने वर्षों का होता है?",
+        options: ["4 वर्ष", "5 वर्ष", "6 वर्ष", "स्थायी"],
+        ans: 1,
+        exp: "लोकसभा जनता का सदन है और इसका सामान्य कार्यकाल 5 वर्ष होता है, जबकि राज्य सभा एक स्थायी सदन है जिसके सदस्यों का कार्यकाल 6 वर्ष होता है।"
+      },
+      {
+        id: 49,
+        subject: "भारतीय संविधान",
+        q: "डॉ. बी.आर. अम्बेडकर ने किस अनुच्छेद को 'संविधान का हृदय और आत्मा' कहा था?",
+        options: ["अनुच्छेद 14", "अनुच्छेद 19", "अनुच्छेद 21", "अनुच्छेद 32"],
+        ans: 3,
+        exp: "अनुच्छेद 32 (संवैधानिक उपचारों का अधिकार) नागरिकों को मौलिक अधिकारों के संरक्षण हेतु सीधे सुप्रीम कोर्ट जाने का अधिकार देता है।"
+      },
+      {
+        id: 50,
+        subject: "भारतीय संविधान",
+        q: "भारत के मुख्य चुनाव आयुक्त (Chief Election Commissioner) की नियुक्ति कौन करता है?",
+        options: ["प्रधानमंत्री", "राष्ट्रपति", "मुख्य न्यायाधीश", "संसद"],
+        ans: 1,
+        exp: "अनुच्छेद 324 के प्रावधानों के तहत भारत के मुख्य चुनाव आयुक्त एवं अन्य आयुक्तों की नियुक्ति भारत के राष्ट्रपति द्वारा की जाती है।"
+      },
+
+      // 51-60: सामान्य विज्ञान (General Science)
+      {
+        id: 51,
+        subject: "सामान्य विज्ञान",
+        q: "'प्रकाश वर्ष' (Light Year) निम्नलिखित में से किसकी मापक इकाई है?",
+        options: ["समय", "प्रकाश की तीव्रता", "खगोलीय दूरी", "द्रव्यमान"],
+        ans: 2,
+        exp: "प्रकाश वर्ष निर्वात में प्रकाश द्वारा एक वर्ष में तय की गई दूरी है (लगभग 9.46 × 10¹² किमी), जो अत्यधिक लंबी खगोलीय दूरियों को मापने की इकाई है।"
+      },
+      {
+        id: 52,
+        subject: "सामान्य विज्ञान",
+        q: "अंतर्राष्ट्रीय मानक प्रणाली (SI) में कार्य और ऊर्जा का मात्रक क्या है?",
+        options: ["वाट", "जूल", "न्यूटन", "पास्कल"],
+        ans: 1,
+        exp: "कार्य और ऊर्जा दोनों का SI मात्रक 'जूल' (Joule) होता है। 1 जूल = 1 न्यूटन × 1 मीटर।"
+      },
+      {
+        id: 53,
+        subject: "सामान्य विज्ञान",
+        q: "न्यूटन के गति के प्रथम नियम को सामान्यतः किस अन्य नाम से भी जाना जाता है?",
+        options: ["संवेग का नियम", "जड़त्व का नियम (Law of Inertia)", "क्रिया-प्रतिक्रिया का नियम", "गुरुत्वाकर्षण नियम"],
+        ans: 1,
+        exp: "न्यूटन के प्रथम नियमानुसार वस्तु अपनी विरामावस्था या गति की अवस्था तब तक बनाए रखती है जब तक उस पर बाह्य बल न लगे। इसे जड़त्व का नियम कहते हैं।"
+      },
+      {
+        id: 54,
+        subject: "सामान्य विज्ञान",
+        q: "25°C पर शुद्ध (उदासीन) जल का pH मान कितना होता है?",
+        options: ["0", "7", "14", "5.5"],
+        ans: 1,
+        exp: "शुद्ध जल न तो अम्लीय होता है और न ही क्षारीय। उदासीन विलयन का pH मान ठीक 7 होता है।"
+      },
+      {
+        id: 55,
+        subject: "सामान्य विज्ञान",
+        q: "बेकिंग सोडा (खाने का मीठा सोडा) का रासायनिक नाम क्या है?",
+        options: ["सोडियम कार्बोनेट", "सोडियम बाइकार्बोनेट", "सोडियम हाइड्रॉक्साइड", "कैल्शियम कार्बोनेट"],
+        ans: 1,
+        exp: "बेकिंग सोडा का रासायनिक नाम सोडियम बाइकार्बोनेट (NaHCO₃) है, जबकि धावन सोडा (Washing Soda) सोडियम कार्बोनेट (Na₂CO₃) होता है।"
+      },
+      {
+        id: 56,
+        subject: "सामान्य विज्ञान",
+        q: "लोहे पर जंग (Rust) लगना किस प्रकार का परिवर्तन माना जाता है?",
+        options: ["भौतिक परिवर्तन", "रासायनिक परिवर्तन", "उभयधर्मी परिवर्तन", "जैविक परिवर्तन"],
+        ans: 1,
+        exp: "लोहे पर जंग लगना एक रासायनिक परिवर्तन (ऑक्सीकरण प्रक्रिया) है क्योंकि इसमें नया पदार्थ (आयरन ऑक्साइड) बनता है और जंग से पुनः लोहा प्राप्त नहीं किया जा सकता।"
+      },
+      {
+        id: 57,
+        subject: "सामान्य विज्ञान",
+        q: "मानव शरीर की सबसे बड़ी ग्रंथि (Largest Gland) कौन सी है?",
+        options: ["अग्न्याशय (Pancreas)", "यकृत (Liver)", "थायरॉयड (Thyroid)", "पीयूष ग्रंथि (Pituitary)"],
+        ans: 1,
+        exp: "मानव शरीर की सबसे बड़ी ग्रंथि यकृत (लिवर) है, जिसका भार लगभग 1.5 किग्रा होता है और यह पित्त रस (Bile juice) का स्राव करती है।"
+      },
+      {
+        id: 58,
+        subject: "सामान्य विज्ञान",
+        q: "कोशिका का 'शक्तिगृह' (Powerhouse of the Cell) किसे कहा जाता है?",
+        options: ["राइबोसोम", "लाइसोसोम", "माइटोकॉन्ड्रिया", "गॉल्जीकाय"],
+        ans: 2,
+        exp: "माइटोकॉन्ड्रिया में कोशिकीय श्वसन द्वारा ऊर्जा का उत्पादन ATP (Adenosine Triphosphate) के रूप में होता है, इसलिए इसे कोशिका का पावरहाउस कहते हैं।"
+      },
+      {
+        id: 59,
+        subject: "सामान्य विज्ञान",
+        q: "रक्त का थक्का जमने (Blood Clotting) में कौन सा विटामिन अनिवार्य भूमिका निभाता है?",
+        options: ["विटामिन A", "विटामिन C", "विटामिन D", "विटामिन K"],
+        ans: 3,
+        exp: "विटामिन K (फाइलोक्विनोन) यकृत में प्रोथ्रोम्बिन के निर्माण में सहायक होता है, जो रक्त का थक्का बनाने के लिए आवश्यक है।"
+      },
+      {
+        id: 60,
+        subject: "सामान्य विज्ञान",
+        q: "सामान्य वयस्क मानव के हृदय में कुल कितने कोष्ठक (Chambers) होते हैं?",
+        options: ["2", "3", "4", "5"],
+        ans: 2,
+        exp: "मानव हृदय चार कक्षीय होता है: दो अलिंद (दायाँ व बायाँ Atrium) तथा दो निलय (दायाँ व बायाँ Ventricle)।"
+      },
+
+      // 61-68: प्रारम्भिक अंकगणित (Elementary Arithmetic)
+      {
+        id: 61,
+        subject: "प्रारम्भिक अंकगणित",
+        q: "मान ज्ञात कीजिए: √625 + √144 = ?",
+        options: ["35", "37", "39", "41"],
+        ans: 1,
+        exp: "√625 = 25 और √144 = 12। अतः 25 + 12 = 37।"
+      },
+      {
+        id: 62,
+        subject: "प्रारम्भिक अंकगणित",
+        q: "यदि 25 वस्तुओं का क्रय मूल्य (CP) 20 वस्तुओं के विक्रय मूल्य (SP) के बराबर हो, तो लाभ प्रतिशत क्या होगा?",
+        options: ["20%", "25%", "30%", "15%"],
+        ans: 1,
+        exp: "25 CP = 20 SP => SP/CP = 25/20 = 5/4। लाभ = 1 unit; लाभ % = (1/4) × 100 = 25%।"
+      },
+      {
+        id: 63,
+        subject: "प्रारम्भिक अंकगणित",
+        q: "दशमलव संख्या 0.04 का वर्गमूल (Square Root) क्या होगा?",
+        options: ["0.02", "0.2", "0.002", "0.4"],
+        ans: 1,
+        exp: "√(0.04) = √(4/100) = 2/10 = 0.2।"
+      },
+      {
+        id: 64,
+        subject: "प्रारम्भिक अंकगणित",
+        q: "5 संख्याओं का औसत 30 है। यदि एक संख्या हटा दी जाए, तो औसत 28 हो जाता है। हटाई गई संख्या ज्ञात कीजिए:",
+        options: ["32", "35", "38", "40"],
+        ans: 2,
+        exp: "5 संख्याओं का कुल योग = 5 × 30 = 150। शेष 4 संख्याओं का कुल योग = 4 × 28 = 112। हटाई गई संख्या = 150 - 112 = 38।"
+      },
+      {
+        id: 65,
+        subject: "प्रारम्भिक अंकगणित",
+        q: "यदि किसी संख्या का 40% भाग 120 के बराबर है, तो उस संख्या का मान क्या होगा?",
+        options: ["240", "300", "360", "480"],
+        ans: 1,
+        exp: "माना संख्या X है। 0.40 × X = 120 => X = 120 / 0.40 = 300।"
+      },
+      {
+        id: 66,
+        subject: "प्रारम्भिक अंकगणित",
+        q: "सरल कीजिए: (0.7 × 0.7 × 0.7 + 0.3 × 0.3 × 0.3) ÷ (0.7 × 0.7 - 0.7 × 0.3 + 0.3 × 0.3) = ?",
+        options: ["0.4", "0.5", "1.0", "2.1"],
+        ans: 2,
+        exp: "यह सर्वसमिका (a³ + b³) / (a² - ab + b²) = a + b के रूप में है। अतः 0.7 + 0.3 = 1.0।"
+      },
+      {
+        id: 67,
+        subject: "प्रारम्भिक अंकगणित",
+        q: "भिन्नों 3/4, 5/6 तथा 7/12 में सबसे बड़ा भिन्न कौन सा है?",
+        options: ["3/4", "5/6", "7/12", "सभी समान हैं"],
+        ans: 1,
+        exp: "दशमलव मान: 3/4 = 0.75, 5/6 = 0.833..., 7/12 = 0.583...। स्पष्ट है कि 5/6 सबसे बड़ा भिन्न है।"
+      },
+      {
+        id: 68,
+        subject: "प्रारम्भिक अंकगणित",
+        q: "₹5000 की धनराशि पर 10% वार्षिक साधारण ब्याज की दर से 2 वर्ष का साधारण ब्याज कितना होगा?",
+        options: ["₹500", "₹1000", "₹1200", "₹1500"],
+        ans: 1,
+        exp: "साधारण ब्याज (SI) = (मूलधन × दर × समय) / 100 = (5000 × 10 × 2) / 100 = ₹1,000।"
+      },
+
+      // 69-76: सामान्य हिन्दी (General Hindi)
+      {
+        id: 69,
+        subject: "सामान्य हिन्दी",
+        q: "हिन्दी व्याकरण में 'संधि' के मुख्य रूप से कितने भेद होते हैं?",
+        options: ["दो", "तीन", "चार", "पाँच"],
+        ans: 1,
+        exp: "संधि के तीन मुख्य भेद होते हैं: 1. स्वर संधि, 2. व्यंजन संधि, 3. विसर्ग संधि।"
+      },
+      {
+        id: 70,
+        subject: "सामान्य हिन्दी",
+        q: "'अन्वेषण' शब्द का सही संधि-विच्छेद निम्नलिखित में से कौन सा है?",
+        options: ["अनु + एषण", "अन्व + एषण", "अन + वेषण", "अनु + वेषण"],
+        ans: 0,
+        exp: "'अनु + एषण' = अन्वेषण। यहाँ यण स्वर संधि (उ + ए = वे) का नियम प्रयुक्त हुआ है।"
+      },
+      {
+        id: 71,
+        subject: "सामान्य हिन्दी",
+        q: "'जिसका कोई शत्रु पैदा ही न हुआ हो' वाक्यांश के लिए एक उपयुक्त शब्द क्या है?",
+        options: ["शत्रुघ्न", "अजातशत्रु", "अजेय", "निस्पृह"],
+        ans: 1,
+        exp: "'जिसका कोई शत्रु न जन्मा हो' उसे 'अजातशत्रु' कहा जाता है। जिसे जीता न जा सके उसे 'अजेय' कहते हैं।"
+      },
+      {
+        id: 72,
+        subject: "सामान्य हिन्दी",
+        q: "'गागर में सागर भरना' मुहावरे का सबसे सटीक अर्थ क्या है?",
+        options: ["घड़े में पानी भरना", "कम शब्दों में बहुत गूढ़ बात कहना", "फिजूलखर्ची करना", "बहुत अधिक बोलना"],
+        ans: 1,
+        exp: "'गागर में सागर भरना' का आशय संक्षिप्त शब्दों में अत्यधिक विस्तृत व गंभीर विचार व्यक्त करना है।"
+      },
+      {
+        id: 73,
+        subject: "सामान्य हिन्दी",
+        q: "'उत्कर्ष' शब्द का विलोम शब्द निम्न में से क्या होगा?",
+        options: ["अपकर्ष", "पतन", "अवनति", "निकृष्ट"],
+        ans: 0,
+        exp: "'उत्कर्ष' (उन्नति/प्रगति) का विलोम 'अपकर्ष' (अधोगति/ह्रास) होता है।"
+      },
+      {
+        id: 74,
+        subject: "सामान्य हिन्दी",
+        q: "'कमल' का पर्यायवाची शब्द निम्नलिखित में से कौन सा है?",
+        options: ["वारिद", "जलद", "जलज", "अंबर"],
+        ans: 2,
+        exp: "जल में जन्म लेने वाला अर्थात 'जलज', पंकज, सरोज, नीरज कमल के पर्यायवाची हैं। वारिद व जलद 'बादल' के पर्यायवाची हैं।"
+      },
+      {
+        id: 75,
+        subject: "सामान्य हिन्दी",
+        q: "'आँखें फेर लेना' मुहावरे का सही अर्थ क्या है?",
+        options: ["नेत्र दोष होना", "उदासीन हो जाना या प्रतिकूल होना", "गुस्से से देखना", "अंधी हो जाना"],
+        ans: 1,
+        exp: "'आँखें फेर लेना' का अर्थ होता है पहले जैसा स्नेह या समर्थन न रखकर विमुख या उदासीन हो जाना।"
+      },
+      {
+        id: 76,
+        subject: "सामान्य हिन्दी",
+        q: "वर्तनी की दृष्टि से निम्नलिखित में से शुद्ध शब्द का चयन कीजिए:",
+        options: ["उज्वल", "उज्जवल", "उज्ज्वल", "ऊज्ज्वल"],
+        ans: 2,
+        exp: "शुद्ध वर्तनी 'उज्ज्वल' है (उ + ज्वल), जिसमें दोनों 'ज' आधे (स्वररहित) होते हैं।"
+      },
+
+      // 77-80: सामान्य अंग्रेजी (General English)
+      {
+        id: 77,
+        subject: "सामान्य अंग्रेजी",
+        q: "Choose the correct SYNONYM of the word 'CANDID':",
+        options: ["Frank", "Secretive", "Shy", "Arrogant"],
+        ans: 0,
+        exp: "'Candid' means outspoken, honest, and straightforward. Its direct synonym is 'Frank'."
+      },
+      {
+        id: 78,
+        subject: "सामान्य अंग्रेजी",
+        q: "Choose the correct ANTONYM of the word 'OPTIMISTIC':",
+        options: ["Hopeful", "Pessimistic", "Cheerful", "Confident"],
+        ans: 1,
+        exp: "'Optimistic' refers to someone who expects a favorable outcome (आशावादी). Its opposite is 'Pessimistic' (निराशावादी)."
+      },
+      {
+        id: 79,
+        subject: "सामान्य अंग्रेजी",
+        q: "One who looks at the bright side of things is called an:",
+        options: ["Pessimist", "Optimist", "Atheist", "Introvert"],
+        ans: 1,
+        exp: "An 'Optimist' is a person who always tends to look at the positive or bright aspect of situations."
+      },
+      {
+        id: 80,
+        subject: "सामान्य अंग्रेजी",
+        q: "Select the CORRECTLY spelt word from the options:",
+        options: ["Accomodation", "Accommodation", "Acommodation", "Accomadation"],
+        ans: 1,
+        exp: "The correct spelling is 'Accommodation' (double 'c' and double 'm')."
+      },
+
+      // 81-86: तर्क एवं तर्कशक्ति (Logic & Reasoning)
+      {
+        id: 81,
+        subject: "तर्कशक्ति (Reasoning)",
+        q: "यदि किसी कूट भाषा में 'CAT' को 24 लिखा जाता है, तो उसी भाषा में 'DOG' को क्या लिखा जाएगा?",
+        options: ["22", "26", "28", "30"],
+        ans: 1,
+        exp: "वर्णमाला क्रम: C(3) + A(1) + T(20) = 24। अतः DOG = D(4) + O(15) + G(7) = 26।"
+      },
+      {
+        id: 82,
+        subject: "तर्कशक्ति (Reasoning)",
+        q: "दिए गए विकल्पों में से विषम (Odd one out) शब्द का चयन कीजिए:",
+        options: ["जनवरी", "मार्च", "अप्रैल", "मई"],
+        ans: 2,
+        exp: "जनवरी (31 दिन), मार्च (31 दिन), मई (31 दिन) हैं, जबकि 'अप्रैल' में 30 दिन होते हैं। अतः अप्रैल विषम है।"
+      },
+      {
+        id: 83,
+        subject: "तर्कशक्ति (Reasoning)",
+        q: "एक व्यक्ति दक्षिण की ओर 5 किमी चलता है, फिर दाएँ मुड़कर 3 किमी चलता है, फिर दाएँ मुड़कर 5 किमी चलता है। अब वह किस दिशा की ओर उन्मुख है?",
+        options: ["उत्तर", "दक्षिण", "पूर्व", "पश्चिम"],
+        ans: 0,
+        exp: "दक्षिण जाकर दाएँ मुड़ने पर पश्चिम दिशा होगी, पुनः दाएँ मुड़ने पर वह 'उत्तर' दिशा की ओर अग्रसर होगा।"
+      },
+      {
+        id: 84,
+        subject: "तर्कशक्ति (Reasoning)",
+        q: "यदि आज सोमवार है, तो आज से 61 दिन बाद कौन सा दिन होगा?",
+        options: ["गुरुवार", "शुक्रवार", "शनिवार", "रविवार"],
+        ans: 2,
+        exp: "61 को 7 से विभाजित करने पर शेषफल = 5 (विषम दिन)। सोमवार + 5 दिन = मंगलवार, बुधवार, गुरुवार, शुक्रवार, 'शनिवार'।"
+      },
+      {
+        id: 85,
+        subject: "तर्कशक्ति (Reasoning)",
+        q: "रक्त संबंध: 'A, B का भाई है। C, A की माता है। D, C के पिता हैं।' B का D से क्या संबंध हो सकता है?",
+        options: ["पुत्र", "पिता", "पौत्र / नाती (Grandson)", "भाई"],
+        ans: 2,
+        exp: "A और B की माता C हैं। D, C के पिता हैं, अतः D, B के नाना हैं और B उनका नाती (Grandson) है।"
+      },
+      {
+        id: 86,
+        subject: "तर्कशक्ति (Reasoning)",
+        q: "संख्या श्रृंखला में प्रश्नवाचक चिन्ह (?) के स्थान पर क्या आएगा: 2, 6, 12, 20, 30, ?",
+        options: ["40", "42", "44", "48"],
+        ans: 1,
+        exp: "पदों का अंतर: 2(+4)=6, 6(+6)=12, 12(+8)=20, 20(+10)=30, अतः अगला अंतर +12 होगा। 30 + 12 = 42।"
+      },
+
+      // 87-94: सामान्य जागरूकता एवं उत्तर प्रदेश विशेष (General Awareness & UP GK)
+      {
+        id: 87,
+        subject: "सामान्य जागरूकता",
+        q: "भारत के किस राज्य की समुद्र तटरेखा (Coastline) सबसे लम्बी है?",
+        options: ["महाराष्ट्र", "तमिलनाडु", "गुजरात", "आंध्र प्रदेश"],
+        ans: 2,
+        exp: "गुजरात की समुद्री तटरेखा भारत में सर्वाधिक लम्बी (लगभग 1,214 किमी) है। दूसरे स्थान पर आंध्र प्रदेश है।"
+      },
+      {
+        id: 88,
+        subject: "सामान्य जागरूकता",
+        q: "'अंतर्राष्ट्रीय महिला दिवस' प्रतिवर्ष किस तिथि को विश्वभर में मनाया जाता है?",
+        options: ["13 फरवरी", "8 मार्च", "5 जून", "24 अक्टूबर"],
+        ans: 1,
+        exp: "महिलाओं की सामाजिक, आर्थिक, सांस्कृतिक और राजनीतिक उपलब्धियों के उत्सव हेतु प्रतिवर्ष 8 मार्च को अंतर्राष्ट्रीय महिला दिवस मनाया जाता है।"
+      },
+      {
+        id: 89,
+        subject: "सामान्य जागरूकता",
+        q: "उत्तर प्रदेश का राजकीय पशु (State Animal) निम्नलिखित में से कौन सा है?",
+        options: ["बाघ", "बारहसिंगा (दलदल का मृग)", "हाथी", "एक सींग वाला गैंडा"],
+        ans: 1,
+        exp: "उत्तर प्रदेश का राजकीय पशु बारहसिंगा (Swamp Deer), राजकीय पक्षी सारस (क्रेन) तथा राजकीय वृक्ष अशोक है।"
+      },
+      {
+        id: 90,
+        subject: "सामान्य जागरूकता",
+        q: "प्रसिद्ध शास्त्रीय नृत्य 'कथकली' की उत्पत्ति भारत के किस राज्य में हुई थी?",
+        options: ["केरल", "तमिलनाडु", "आंध्र प्रदेश", "ओडिशा"],
+        ans: 0,
+        exp: "कथकली केरल का विश्वविख्यात शास्त्रीय नृत्य-नाटक है जिसमें मुखौटे और विशिष्ट भाव-भंगिमाओं का प्रदर्शन होता है। भरतनाट्यम तमिलनाडु का है।"
+      },
+      {
+        id: 91,
+        subject: "सामान्य जागरूकता",
+        q: "'विश्व पर्यावरण दिवस' (World Environment Day) प्रतिवर्ष कब आयोजित किया जाता है?",
+        options: ["22 अप्रैल", "5 जून", "16 सितम्बर", "11 जुलाई"],
+        ans: 1,
+        exp: "1972 के स्टॉकहोम सम्मेलन की स्मृति में संयुक्त राष्ट्र द्वारा प्रतिवर्ष 5 जून को विश्व पर्यावरण दिवस मनाया जाता है।"
+      },
+      {
+        id: 92,
+        subject: "सामान्य जागरूकता",
+        q: "दक्षिण एशियाई क्षेत्रीय सहयोग संगठन (सार्क - SAARC) का स्थायी सचिवालय कहाँ स्थित है?",
+        options: ["नई दिल्ली", "इस्लामाबाद", "काठमांडू", "ढाका"],
+        ans: 2,
+        exp: "सार्क की स्थापना 1985 में ढाका में हुई थी, जबकि इसका स्थायी सचिवालय काठमांडू (नेपाल) में स्थित है।"
+      },
+      {
+        id: 93,
+        subject: "सामान्य जागरूकता",
+        q: "भारत का 'राष्ट्रीय खेल दिवस' (29 अगस्त) किस महान खिलाड़ी के जन्मदिवस के उपलक्ष्य में मनाया जाता है?",
+        options: ["मिल्खा सिंह", "मेजर ध्यानचंद", "कपिल देव", "के.डी. सिंह बाबू"],
+        ans: 1,
+        exp: "हॉकी के जादूगर मेजर ध्यानचंद के जन्मदिवस (29 अगस्त) को भारत में राष्ट्रीय खेल दिवस के रूप में मनाया जाता है।"
+      },
+      {
+        id: 94,
+        subject: "सामान्य जागरूकता",
+        q: "उत्तर प्रदेश के किस प्रमुख जनपद को विश्वभर में 'पीतल नगरी' (Brass City) के रूप में जाना जाता है?",
+        options: ["कन्नौज", "मुरादाबाद", "फिरोजाबाद", "वाराणसी"],
+        ans: 1,
+        exp: "मुरादाबाद अपने उत्कृष्ट पीतल हस्तशिल्प और बर्तनों के वैश्विक निर्यात के लिए 'पीतल नगरी' के नाम से जाना जाता है। फिरोजाबाद चूड़ियों के लिए प्रसिद्ध है।"
+      },
+
+      // 95-100: समसामयिक घटनाएं एवं राष्ट्रीय मुद्दे (Current Affairs & Contemporary)
+      {
+        id: 95,
+        subject: "सामयिकी (Current Affairs)",
+        q: "भारत के ऐतिहासिक चन्द्र मिशन 'चन्द्रयान-3' के लैंडर का आधिकारिक नाम क्या था?",
+        options: ["प्रज्ञान", "विक्रम", "ध्रुव", "आदित्य"],
+        ans: 1,
+        exp: "चन्द्रयान-3 के लैंडर का नाम 'विक्रम' (डॉ. विक्रम साराभाई के नाम पर) और रोवर का नाम 'प्रज्ञान' था जिसने 23 अगस्त 2023 को चन्द्रमा के दक्षिणी ध्रुव पर सफल सॉफ्ट लैंडिंग की।"
+      },
+      {
+        id: 96,
+        subject: "सामयिकी (Current Affairs)",
+        q: "नई दिल्ली स्थित भारत के नए संसद भवन (Central Vista) के मुख्य वास्तुकार कौन हैं?",
+        options: ["एडविन लुटियंस", "बिमल पटेल", "राम वी. सुतार", "हफीज कांट्रैक्टर"],
+        ans: 1,
+        exp: "भारत के नए त्रिकोणीय संसद भवन के प्रमुख वास्तुकार पद्मश्री डॉ. बिमल पटेल (HCP डिजाइन्स) हैं।"
+      },
+      {
+        id: 97,
+        subject: "सामयिकी (Current Affairs)",
+        q: "वर्ष 2024 के 33वें ग्रीष्मकालीन ओलंपिक खेलों का भव्य आयोजन किस शहर में हुआ?",
+        options: ["टोक्यो", "पेरिस", "लॉस एंजिल्स", "लंदन"],
+        ans: 1,
+        exp: "2024 के समर ओलंपिक खेल पेरिस (फ्रांस) में आयोजित हुए। अगला 2028 ओलंपिक लॉस एंजिल्स (USA) में होगा।"
+      },
+      {
+        id: 98,
+        subject: "सामयिकी (Current Affairs)",
+        q: "डिजिटल वित्तीय लेनदेन में क्रांति लाने वाली भारतीय तकनीक 'UPI' का पूर्ण रूप क्या है?",
+        options: ["Unified Payments Interface", "Universal Public Interface", "United Payment Infrastructure", "Uniform Protocol Internet"],
+        ans: 0,
+        exp: "UPI का पूर्ण रूप 'Unified Payments Interface' है जिसे भारतीय राष्ट्रीय भुगतान निगम (NPCI) द्वारा विकसित किया गया है।"
+      },
+      {
+        id: 99,
+        subject: "सामयिकी (Current Affairs)",
+        q: "भारतीय संविधान के अनुसार भारतीय सशस्त्र बलों (तीनों सेनाओं) का सर्वोच्च सेनापति कौन होता है?",
+        options: ["प्रधानमंत्री", "चीफ ऑफ डिफेंस स्टाफ (CDS)", "भारत के राष्ट्रपति", "रक्षा मंत्री"],
+        ans: 2,
+        exp: "अनुच्छेद 53(2) के अनुसार भारत संघ के रक्षा बलों का सर्वोच्च समादेश (Supreme Command) भारत के राष्ट्रपति में निहित होता है।"
+      },
+      {
+        id: 100,
+        subject: "सामयिकी (Current Affairs)",
+        q: "वैश्विक स्तर पर मनाए जाने वाले 'अंतर्राष्ट्रीय योग दिवस' (21 जून) की शुरुआत संयुक्त राष्ट्र द्वारा किस वर्ष की गई थी?",
+        options: ["2014", "2015", "2016", "2018"],
+        ans: 1,
+        exp: "संयुक्त राष्ट्र महासभा ने दिसम्बर 2014 में संकल्प पारित कर 21 जून 2015 को पहला 'अंतर्राष्ट्रीय योग दिवस' आधिकारिक रूप से आयोजित किया था।"
+      }
+    ];
+
+    /* ========================================================
+       STATE MANAGEMENT
+       ======================================================== */
+    let studentData = { name: "", roll: "" };
+    let currentQIndex = 0;
+    let userAnswers = new Array(UP_PET_QUESTIONS.length).fill(null);
+    let timeRemaining = 120 * 60; // 120 minutes in seconds
+    let timerInterval = null;
+    let testStartedTime = null;
+    let soundEnabled = true;
+    let antiCheatCount = 0;
+
+    /* ========================================================
+       AUDIO SYNTHESIS (NO EXTERNAL AUDIO FILES)
+       ======================================================== */
+    function playTone(freq, type = 'sine', duration = 0.08) {
+      if (!soundEnabled) return;
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        gain.gain.setValueAtTime(0.12, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + duration);
+      } catch (e) {
+        // Fallback silently if blocked
+      }
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      const btn = document.getElementById("soundBtn");
+      btn.innerText = soundEnabled ? "🔊" : "🔇";
+      if (soundEnabled) playTone(580);
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    }
+
+    /* ========================================================
+       START TEST LOGIC
+       ======================================================== */
+    function handleStartTest(e) {
+      e.preventDefault();
+      const name = document.getElementById("studentName").value.trim();
+      const roll = document.getElementById("rollNumber").value.trim();
+      if (!name || !roll) return;
+
+      studentData.name = name;
+      studentData.roll = roll;
+
+      document.getElementById("dispStudentName").innerText = name;
+      document.getElementById("dispRollNumber").innerText = "Roll: " + roll;
+
+      // Switch Screens
+      document.getElementById("startScreen").classList.remove("active");
+      document.getElementById("quizScreen").classList.add("active");
+
+      testStartedTime = new Date();
+      playTone(520, 'triangle', 0.12);
+
+      initPaletteGrid();
+      loadQuestion(0);
+      startTimer();
+    }
+
+    /* ========================================================
+       TIMER IMPLEMENTATION
+       ======================================================== */
+    function startTimer() {
+      updateTimerDisplay();
+      timerInterval = setInterval(() => {
+        timeRemaining--;
+        updateTimerDisplay();
+
+        if (timeRemaining <= 300) {
+          document.getElementById("timerBox").classList.add("danger-time");
+        }
+
+        if (timeRemaining <= 0) {
+          clearInterval(timerInterval);
+          alert("⏱️ परीक्षा का समय समाप्त हो गया है! आपका टेस्ट अब स्वतः सबमिट किया जा रहा है।");
+          finalSubmitQuiz();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const h = Math.floor(timeRemaining / 3600);
+      const m = Math.floor((timeRemaining % 3600) / 60);
+      const s = timeRemaining % 60;
+      const str = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+      document.getElementById("timerDisplay").innerText = str;
+    }
+
+    /* ========================================================
+       QUESTION RENDERING
+       ======================================================== */
+    function loadQuestion(index) {
+      currentQIndex = index;
+      const qData = UP_PET_QUESTIONS[index];
+
+      // Update question text and badge
+      document.getElementById("qSubjectBadge").innerText = qData.subject;
+      document.getElementById("qCountDisplay").innerText = `प्रश्न ${index + 1} / ${UP_PET_QUESTIONS.length}`;
+      document.getElementById("qText").innerText = `${index + 1}. ${qData.q}`;
+
+      // Render Options
+      const optionsContainer = document.getElementById("optionsContainer");
+      optionsContainer.innerHTML = "";
+      const letters = ["A", "B", "C", "D"];
+
+      qData.options.forEach((optText, i) => {
+        const optDiv = document.createElement("div");
+        optDiv.className = `option-item ${userAnswers[index] === i ? "selected" : ""}`;
+        optDiv.onclick = () => selectOption(index, i);
+
+        optDiv.innerHTML = `
+          <div class="opt-circle">${letters[i]}</div>
+          <div class="opt-text">${optText}</div>
+        `;
+        optionsContainer.appendChild(optDiv);
+      });
+
+      // Update Navigation Buttons
+      document.getElementById("prevBtn").disabled = (index === 0);
+      document.getElementById("prevBtn").style.opacity = (index === 0) ? "0.5" : "1";
+
+      const nextBtn = document.getElementById("nextBtn");
+      if (index === UP_PET_QUESTIONS.length - 1) {
+        nextBtn.innerText = "समीक्षा / समाप्त";
+      } else {
+        nextBtn.innerText = "अगला (Next) →";
+      }
+
+      // Progress bar & Palette
+      updateProgressBar();
+      updatePaletteButtonStatus(index);
+
+      // Auto Scroll to Top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function selectOption(qIdx, optIdx) {
+      userAnswers[qIdx] = optIdx;
+      playTone(660, 'sine', 0.05);
+
+      // Update visual selection
+      const options = document.querySelectorAll(".option-item");
+      options.forEach((el, i) => {
+        if (i === optIdx) el.classList.add("selected");
+        else el.classList.remove("selected");
+      });
+
+      updateProgressBar();
+      updatePaletteButtonStatus(qIdx);
+    }
+
+    function clearCurrentResponse() {
+      userAnswers[currentQIndex] = null;
+      playTone(400, 'sine', 0.06);
+      loadQuestion(currentQIndex);
+    }
+
+    function navigateQuestion(direction) {
+      const newIdx = currentQIndex + direction;
+      if (newIdx >= 0 && newIdx < UP_PET_QUESTIONS.length) {
+        playTone(480, 'sine', 0.04);
+        loadQuestion(newIdx);
+      } else if (newIdx >= UP_PET_QUESTIONS.length) {
+        openSubmitConfirmModal();
+      }
+    }
+
+    function updateProgressBar() {
+      const answeredCount = userAnswers.filter(a => a !== null).length;
+      const pct = Math.max(1, (answeredCount / UP_PET_QUESTIONS.length) * 100);
+      document.getElementById("progressBar").style.width = pct + "%";
+    }
+
+    /* ========================================================
+       PALETTE DRAWER LOGIC
+       ======================================================== */
+    function initPaletteGrid() {
+      const grid = document.getElementById("paletteGrid");
+      grid.innerHTML = "";
+      for (let i = 0; i < UP_PET_QUESTIONS.length; i++) {
+        const b = document.createElement("button");
+        b.className = "pal-btn";
+        b.id = `palBtn_${i}`;
+        b.innerText = i + 1;
+        b.onclick = () => {
+          togglePaletteDrawer();
+          loadQuestion(i);
+        };
+        grid.appendChild(b);
+      }
+    }
+
+    function updatePaletteButtonStatus(activeIndex) {
+      for (let i = 0; i < UP_PET_QUESTIONS.length; i++) {
+        const b = document.getElementById(`palBtn_${i}`);
+        if (!b) continue;
+        b.className = "pal-btn";
+        if (userAnswers[i] !== null) {
+          b.classList.add("answered");
+        }
+        if (i === activeIndex) {
+          b.classList.add("current");
+        }
+      }
+    }
+
+    function togglePaletteDrawer() {
+      const drawer = document.getElementById("paletteDrawer");
+      const overlay = document.getElementById("drawerOverlay");
+      const isOpen = drawer.classList.contains("open");
+      if (isOpen) {
+        drawer.classList.remove("open");
+        overlay.classList.remove("open");
+      } else {
+        drawer.classList.add("open");
+        overlay.classList.add("open");
+      }
+    }
+
+    /* ========================================================
+       ANTI-CHEAT DETECTION (TAB CHANGE)
+       ======================================================== */
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden && document.getElementById("quizScreen").classList.contains("active")) {
+        antiCheatCount++;
+        playTone(300, 'sawtooth', 0.3);
+        const toast = document.getElementById("toastAlert");
+        toast.style.display = "flex";
+        setTimeout(() => {
+          toast.style.display = "none";
+        }, 4000);
+      }
+    });
+
+    /* ========================================================
+       SUBMISSION & SCORE CALCULATION
+       ======================================================== */
+    function openSubmitConfirmModal() {
+      const attempted = userAnswers.filter(a => a !== null).length;
+      const unattempted = UP_PET_QUESTIONS.length - attempted;
+      document.getElementById("confirmModalStats").innerText = `हल किए गए प्रश्न: ${attempted} | शेष प्रश्न: ${unattempted}`;
+      document.getElementById("confirmModal").classList.add("active");
+    }
+
+    function closeSubmitConfirmModal() {
+      document.getElementById("confirmModal").classList.remove("active");
+    }
+
+    function finalSubmitQuiz() {
+      closeSubmitConfirmModal();
+      clearInterval(timerInterval);
+
+      // Calculations
+      let correct = 0;
+      let wrong = 0;
+      let attempted = 0;
+
+      UP_PET_QUESTIONS.forEach((q, idx) => {
+        const uAns = userAnswers[idx];
+        if (uAns !== null) {
+          attempted++;
+          if (uAns === q.ans) {
+            correct++;
+          } else {
+            wrong++;
+          }
+        }
+      });
+
+      // UP PET Pattern: +1 for correct, -0.25 for wrong
+      const rawScore = (correct * 1.0) - (wrong * 0.25);
+      const finalScore = Math.max(0, rawScore).toFixed(2);
+      const percentage = Math.max(0, (finalScore / UP_PET_QUESTIONS.length) * 100).toFixed(1);
+      const accuracy = attempted > 0 ? ((correct / attempted) * 100).toFixed(1) : 0;
+
+      // Elapsed time
+      const timeSpentSec = (120 * 60) - timeRemaining;
+      const minSpent = Math.floor(timeSpentSec / 60);
+      const secSpent = timeSpentSec % 60;
+      const timeStr = `${minSpent} मिनट ${secSpent} सेकंड`;
+
+      // Fill result card
+      document.getElementById("resFinalScore").innerText = finalScore;
+      document.getElementById("resTotalQ").innerText = UP_PET_QUESTIONS.length;
+      document.getElementById("resAttempted").innerText = attempted;
+      document.getElementById("resCorrect").innerText = correct;
+      document.getElementById("resWrong").innerText = wrong;
+      document.getElementById("resAccuracy").innerText = accuracy + "%";
+      document.getElementById("resTimeTaken").innerText = `${minSpent}m ${secSpent}s`;
+
+      document.getElementById("resCardName").innerText = studentData.name;
+      document.getElementById("resCardRoll").innerText = studentData.roll;
+      document.getElementById("resCardPercentage").innerText = percentage + "%";
+      document.getElementById("revTotalTiming").innerText = `कुल लिया गया समय: ${timeStr}`;
+
+      if (finalScore >= 65) {
+        document.getElementById("resStudentGreeting").innerText = `शानदार प्रदर्शन, ${studentData.name}! 🌟`;
+        document.getElementById("resSubMsg").innerText = "आप UPSSSC PET परीक्षा में उत्कृष्ट मेरिट के योग्य हैं!";
+      } else if (finalScore >= 45) {
+        document.getElementById("resStudentGreeting").innerText = `अच्छा प्रयास, ${studentData.name}! 👍`;
+        document.getElementById("resSubMsg").innerText = "अभ्यास जारी रखें, आप और भी बेहतर स्कोर कर सकते हैं।";
+      } else {
+        document.getElementById("resStudentGreeting").innerText = `निरंतर अभ्यास की आवश्यकता है, ${studentData.name}! 📚`;
+        document.getElementById("resSubMsg").innerText = "गलत उत्तरों की समीक्षा करें और अपनी कमजोरियों को सुधारें।";
+      }
+
+      // Transition to Result Screen
+      document.getElementById("quizScreen").classList.remove("active");
+      document.getElementById("resultScreen").classList.add("active");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ========================================================
+       REVIEW SYSTEM & EXPLANATIONS
+       ======================================================== */
+    function showReviewScreen() {
+      document.getElementById("resultScreen").classList.remove("active");
+      document.getElementById("reviewScreen").classList.add("active");
+      renderReviewCards('all');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function backToResult() {
+      document.getElementById("reviewScreen").classList.remove("active");
+      document.getElementById("resultScreen").classList.add("active");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function filterReview(type, btn) {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+      renderReviewCards(type);
+    }
+
+    function renderReviewCards(filterType) {
+      const container = document.getElementById("reviewListContainer");
+      container.innerHTML = "";
+      const letters = ["A", "B", "C", "D"];
+
+      UP_PET_QUESTIONS.forEach((q, i) => {
+        const uAns = userAnswers[i];
+        const isAnswered = (uAns !== null);
+        const isCorrect = (uAns === q.ans);
+
+        if (filterType === 'correct' && !isCorrect) return;
+        if (filterType === 'wrong' && (!isAnswered || isCorrect)) return;
+        if (filterType === 'unanswered' && isAnswered) return;
+
+        let statusClass = "unanswered";
+        let statusBadge = `<span style="color:#94a3b8; font-weight:600;">⚪ अनुत्तरित (Unanswered)</span>`;
+
+        if (isAnswered) {
+          if (isCorrect) {
+            statusClass = "correct";
+            statusBadge = `<span style="color:#10b981; font-weight:600;">🟢 सही उत्तर (+1.0)</span>`;
+          } else {
+            statusClass = "wrong";
+            statusBadge = `<span style="color:#ef4444; font-weight:600;">🔴 गलत उत्तर (-0.25)</span>`;
+          }
+        }
+
+        const card = document.createElement("div");
+        card.className = `review-card ${statusClass}`;
+
+        let optionsHtml = "";
+        q.options.forEach((optText, optIdx) => {
+          let optClass = "rev-opt";
+          let label = "";
+
+          if (optIdx === q.ans) {
+            optClass += " opt-correct";
+            label = " ✓ (सही उत्तर)";
+          } else if (optIdx === uAns && !isCorrect) {
+            optClass += " opt-wrong";
+            label = " ✗ (आपका उत्तर)";
+          }
+
+          optionsHtml += `
+            <div class="${optClass}">
+              <strong>${letters[optIdx]}.</strong> ${optText} <span style="font-size:0.85rem;">${label}</span>
+            </div>
+          `;
+        });
+
+        card.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; font-size:0.88rem;">
+            <span class="q-badge">${q.subject}</span>
+            <div>${statusBadge}</div>
+          </div>
+          <div style="font-weight:600; font-size:1.1rem; color:#fff; margin-bottom:12px;">
+            प्रश्न ${i + 1}: ${q.q}
+          </div>
+          <div>${optionsHtml}</div>
+          <div class="rev-explanation">
+            <strong style="color:var(--accent);">💡 विस्तृत समाधान एवं व्याख्या:</strong><br>
+            ${q.exp}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      if (container.children.length === 0) {
+        container.innerHTML = `<div style="text-align:center; padding:40px; color:#94a3b8;">इस श्रेणी में कोई प्रश्न उपलब्ध नहीं है।</div>`;
+      }
+    }
+
+    /* ========================================================
+       RESTART QUIZ
+       ======================================================== */
+    function restartQuiz() {
+      if (!confirm("क्या आप पुनः टेस्ट प्रारम्भ करना चाहते हैं? आपकी पुरानी प्रगति रीसेट हो जाएगी।")) return;
+      userAnswers = new Array(UP_PET_QUESTIONS.length).fill(null);
+      timeRemaining = 120 * 60;
+      antiCheatCount = 0;
+
+      document.getElementById("resultScreen").classList.remove("active");
+      document.getElementById("reviewScreen").classList.remove("active");
+      document.getElementById("startScreen").classList.add("active");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
